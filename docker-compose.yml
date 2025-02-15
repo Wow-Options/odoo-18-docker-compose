@@ -33,7 +33,7 @@ services:
       # - ./entrypoint.sh:/entrypoint.sh
       - ./addons:/mnt/extra-addons
       - ./enterprise-addons:/mnt/enterprise-addons
-      - ./extra-addons:/mnt/extra-addons
+      - ./extra-addons:/mnt/custom-addons
       - ./etc:/etc/odoo
       
     networks:
