@@ -36,9 +36,10 @@ services:
       - ./enterprise-addons:/mnt/enterprise-addons
       - ./extra-addons:/mnt/extra-addons
       - ./etc:/etc/odoo
-    restart: always
     networks:
       - my-main-net
+    restart: always
+    
 
 networks:
 my-main-net:
