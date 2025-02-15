@@ -31,10 +31,9 @@ services:
       # - /etc/timezone:/etc/timezone:ro
       # - /etc/localtime:/etc/localtime:ro
       # - ./entrypoint.sh:/entrypoint.sh
-      - ./addons:/mnt/extra-addons
-      - ./enterprise-addons:/mnt/enterprise-addons
-      - ./extra-addons:/mnt/custom-addons
-      - ./etc:/etc/odoo
+      - ./enterprise-addons:/mnt/enterprise-addons  # Mount enterprise addons
+      - ./custom-addons:/mnt/custom-addons          # Mount custom addons
+      - ./etc:/etc/odoo  
       
     networks:
       - my-main-net
@@ -42,3 +41,6 @@ services:
 networks:
   my-main-net:
     external: true
+
+command: odoo --addons-path=/mnt/enterprise-addons,/mnt/custom-addons,/usr/lib/python3/dist-packages/odoo/addons
+
