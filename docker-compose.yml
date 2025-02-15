@@ -1,5 +1,4 @@
 version: '2'
-
 services:
   db:
     image: postgres:15
@@ -36,11 +35,10 @@ services:
       - ./enterprise-addons:/mnt/enterprise-addons
       - ./extra-addons:/mnt/extra-addons
       - ./etc:/etc/odoo
+      
     networks:
       - my-main-net
-    restart: always
-    
-
+    restart:
 networks:
   my-main-net:
     external: true
