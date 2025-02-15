@@ -42,5 +42,4 @@ networks:
   my-main-net:
     external: true
 
-command: odoo --addons-path=/mnt/enterprise-addons,/mnt/custom-addons,/usr/lib/python3/dist-packages/odoo/addons
 
