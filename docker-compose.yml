@@ -12,8 +12,7 @@ services:
     volumes:
       - ./postgresql:/var/lib/postgresql/data
     networks:
-      custom_net:
-        ipv4_address: 172.20.0.10
+      - my-main-net
 
   odoo18:
     image: odoo:18
@@ -34,16 +33,13 @@ services:
       # - /etc/localtime:/etc/localtime:ro
       # - ./entrypoint.sh:/entrypoint.sh
       - ./addons:/mnt/extra-addons
+      - ./enterprise-addons:/mnt/enterprise-addons
+      - ./extra-addons:/mnt/extra-addons
       - ./etc:/etc/odoo
     restart: always
     networks:
-      custom_net:
-        ipv4_address: 172.20.0.11
+      - my-main-net
 
 networks:
-  custom_net:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/24
-          gateway: 172.20.0.1
+my-main-net:
+  external: true
