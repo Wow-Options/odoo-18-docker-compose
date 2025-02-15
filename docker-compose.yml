@@ -38,7 +38,7 @@ services:
       
     networks:
       - my-main-net
-    restart:
+    restart: always
 networks:
   my-main-net:
     external: true
